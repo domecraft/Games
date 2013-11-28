@@ -37,6 +37,5 @@ for turn in range(8): # Will give the player 8 guesses
         else:
             print "You missed my battleship!"
             board[guess_row][guess_col] = "X"
-    # Print (turn + 1) here!
     print "Turn: "+ str((turn + 1))
     print_board(board)
