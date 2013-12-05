@@ -8,7 +8,8 @@ puts "Welcome to this RPG. It is still in development but hopefully you still en
     puts "First, pick a class. Do you want to be an archer, a warrior, or a wizard?"
     playerClass = gets.chomp
 	playerClass = playerClass.downcase
-	if playerClass == "archer"
+    case playerClass
+	when "archer"
 		strength = 4
 		speed = 7
 		reputation = 8
@@ -16,7 +17,7 @@ puts "Welcome to this RPG. It is still in development but hopefully you still en
         puts "Your Strength is: #{strength}"
         puts "Your Speed is: #{speed}"
         puts "Your reputation is: #{reputation}"
-	elsif playerClass == "warrior"
+	when "warrior"
 		strength = 8
 		speed = 4
 		reputation = 6
@@ -24,7 +25,7 @@ puts "Welcome to this RPG. It is still in development but hopefully you still en
         puts "Your Strength is: #{strength}"
         puts "Your Speed is: #{speed}"
         puts "Your reputation is: #{reputation}"
-	elsif playerClass == "wizard"
+	when "wizard"
 		strength = 7
 		speed = 6
 		reputation = 4
