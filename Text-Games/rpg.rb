@@ -53,6 +53,11 @@ case randEvent1
 			puts "Your reputation has gone down somewhat"
 			reputation -= 2
 	when "n" || "no"
-		puts "Ok then"
+		puts "Ok then."
+puts "Do you want to go to a Tavern next?"
+puts "Or maybe you want to go to the forest?"
+locationChoice=gets.chomp
+case locationChoice
+	 	
 	
 	
