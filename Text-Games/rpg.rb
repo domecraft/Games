@@ -41,7 +41,7 @@ puts "Welcome to this RPG. It is still in development but hopefully you still en
 		errorMessage()
 	end    
 end 
-playerRaceChosen == false
+playerRaceChosen = false
 while playerRaceChosen == false do
 	puts "Next, let's pick a race for your character"
 	puts "Do you want to be a human, an elf, or a dwarf?"
@@ -56,6 +56,7 @@ while playerRaceChosen == false do
 			puts "Your new Strength is: #{strength}"
         		puts "Your new Speed is: #{speed}"
         		puts "Your new reputation is: #{reputation}"
+        		playerRaceChosen = true
 		when "elf"
 			strength -=1
 			speed += 3
@@ -64,6 +65,7 @@ while playerRaceChosen == false do
 			puts "Your new Strength is: #{strength}"
         		puts "Your new Speed is: #{speed}"
         		puts "Your new reputation is: #{reputation}"
+        		playerRaceChosen = true
 		when "dwarf"
 			strength =+5
 			speed -= 4
@@ -72,6 +74,7 @@ while playerRaceChosen == false do
 			puts "Your new Strength is: #{strength}"
         		puts "Your new Speed is: #{speed}"
         		puts "Your new reputation is: #{reputation}"
+        		playerRaceChosen = true
 		else
 			errorMessage()
 	end
