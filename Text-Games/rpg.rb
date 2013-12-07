@@ -83,7 +83,7 @@ end
 puts "You start out in the middle of a town."
 puts " You overhear a person calling for help. Do you wish to help them? Y/N"
 randEvent1 = gets.chomp
-randEvent = randEvent.downcase
+randEvent1 = randEvent1.downcase
 case randEvent1
 	when "y" || "yes"
 		if speed > 6
