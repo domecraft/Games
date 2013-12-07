@@ -10,6 +10,20 @@ end
 def errorMessage()
 	puts "You either didn't put one of the options or you spelled it wrong"
 end
+def moneyOffered(moneyAmount)
+	#This function is used in random events when the player is offered money for helping
+	moneyChoice = gets.chomp
+	moneyChoice = moneyChoice.downcase
+		case moneyChoice
+			when "yes" || "y"
+				money += moneyAmount
+				puts "You now have #{money} coins"
+			when "no" || "n"
+				reputation +=2
+				puts "Although you didn't accept the money your reputation still went up"
+				puts "Your new reputation is now #{reputation}"
+		end
+end
 puts "Welcome to this RPG. It is still in development but hopefully you still enjoy it."
     while playerClassChosen == false do 
     puts "First, pick a class. Do you want to be an archer, a warrior, or a wizard?"
@@ -100,7 +114,10 @@ case randEvent1
 		if speed > 6
 			space()
 			puts "You were able to help the person in time"
-			puts "Your reputation has gone up in the town"
+			puts "The person offers you money as thanks"
+			puts "Do you wish to accept the money?"
+			moneyOffered(10)
+			puts "Your reputation has gone up in the town for helping the stranger."
 			reputation += 5
 		else
 			space()
