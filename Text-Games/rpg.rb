@@ -15,10 +15,10 @@ def moneyOffered(moneyAmount)
 	moneyChoice = gets.chomp
 	moneyChoice = moneyChoice.downcase
 		case moneyChoice
-			when "yes" || "y"
+			when "yes", "y"
 				money += moneyAmount
 				puts "You now have #{money} coins"
-			when "no" || "n"
+			when "no", "n"
 				reputation +=2
 				puts "Although you didn't accept the money your reputation still went up"
 				puts "Your new reputation is now #{reputation}"
@@ -110,7 +110,7 @@ puts " You overhear a person calling for help. Do you wish to help them? Y/N"
 randEvent1 = gets.chomp
 randEvent1 = randEvent1.downcase
 case randEvent1
-	when "y" || "yes"
+	when "y", "yes"
 		if speed > 6
 			space()
 			puts "You were able to help the person in time"
@@ -126,7 +126,7 @@ case randEvent1
 			reputation -= 2
 			puts "Your new reputation is now at #{reputation}"
 		end
-	when "n" || "no"
+	when "n", "no"
 		puts "Ok then."
 end
 locationChoiceChosen = false
