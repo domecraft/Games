@@ -138,6 +138,7 @@ locationChoice = gets.chomp
 locationChoice = locationChoice.downcase
 case locationChoice
 	when "tavern"
+		locationChoiceChosen = true
 		space()
 		puts "You are now in the tavern. You can either:"
 		puts "1: Talk to the bartender"
@@ -146,6 +147,7 @@ case locationChoice
 		tavernChoice = gets.chomp
 		tavernchoice = tavernChoice.downcase
 	when "forest"
+		locationChoiceChosen = true
 		space()
 		puts "You find yourself in a forest. You see a deer in front of you."
 		puts "Do you wish to attack the Deer?"
