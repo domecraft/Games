@@ -94,8 +94,10 @@ case randEvent1
 			puts "You were too slow to help the person in time."
 			puts "Your reputation has gone down somewhat"
 			reputation -= 2
+		end
 	when "n" || "no"
 		puts "Ok then."
+end
 locationChoiceChosen = false
 while locationChoiceChosen == false do
 puts "Do you want to go to a Tavern next?"
@@ -116,6 +118,7 @@ case locationChoice
 		
 	else
 		puts "That is not an option!"
+	end
 end
 	
 	
