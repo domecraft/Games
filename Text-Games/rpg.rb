@@ -106,6 +106,7 @@ case randEvent1
 			puts "You were too slow to help the person in time."
 			puts "Your reputation has gone down somewhat"
 			reputation -= 2
+			puts "Your new reputation is now at #{reputation}"
 		end
 	when "n" || "no"
 		puts "Ok then."
