@@ -90,6 +90,7 @@ while playerRaceChosen == false do
 	end
 			
 end
+space()
 puts "You start out in the middle of a town."
 puts " You overhear a person calling for help. Do you wish to help them? Y/N"
 randEvent1 = gets.chomp
@@ -113,12 +114,14 @@ case randEvent1
 end
 locationChoiceChosen = false
 while locationChoiceChosen == false do
+space()
 puts "Do you want to go to a Tavern next?"
 puts "Or maybe you want to go to the forest?"
 locationChoice = gets.chomp
 locationChoice = locationChoice.downcase
 case locationChoice
 	when "tavern"
+		space()
 		puts "You are now in the tavern. You can either:"
 		puts "1: Talk to the bartender"
 		puts "2: Play a game of poker"
@@ -126,6 +129,7 @@ case locationChoice
 		tavernChoice = gets.chomp
 		tavernchoice = tavernChoice.downcase
 	when "forest"
+		space()
 		puts "You find yourself in a forest. You see a deer in front of you."
 		puts "Do you wish to attack the Deer?"
 		
