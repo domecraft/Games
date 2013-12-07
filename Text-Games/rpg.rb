@@ -4,8 +4,11 @@ health = 100
 inventory = []
 playerClassChosen = false
 money = 0
+def space()
+	puts ""
+end
 def errorMessage()
-	puts "You either didn't put one of the options or spelled it wrong"
+	puts "You either didn't put one of the options or you spelled it wrong"
 end
 puts "Welcome to this RPG. It is still in development but hopefully you still enjoy it."
     while playerClassChosen == false do 
@@ -18,6 +21,7 @@ puts "Welcome to this RPG. It is still in development but hopefully you still en
 		speed = 8
 		reputation = 8
 		playerClassChosen = true
+		space()
         	puts "Your Strength is: #{strength}"
         	puts "Your Speed is: #{speed}"
         	puts "Your reputation is: #{reputation}"
@@ -26,6 +30,7 @@ puts "Welcome to this RPG. It is still in development but hopefully you still en
 		speed = 3
 		reputation = 6
 		playerClassChosen = true
+		space()
 		puts "Your Strength is: #{strength}"
         	puts "Your Speed is: #{speed}"
         	puts "Your reputation is: #{reputation}"
@@ -34,6 +39,7 @@ puts "Welcome to this RPG. It is still in development but hopefully you still en
 		speed = 5
 		reputation = 4
 		playerClassChosen = true
+		space()
         	puts "Your Strength is: #{strength}"
         	puts "Your Speed is: #{speed}"
         	puts "Your reputation is: #{reputation}"
@@ -43,6 +49,7 @@ puts "Welcome to this RPG. It is still in development but hopefully you still en
 end 
 playerRaceChosen = false
 while playerRaceChosen == false do
+	space()
 	puts "Next, let's pick a race for your character"
 	puts "Do you want to be a human, an elf, or a dwarf?"
 	playerRace = gets.chomp
@@ -53,6 +60,7 @@ while playerRaceChosen == false do
 			speed += 1
 			reputation += 2
 			playerRaceChosen == true
+			space()
 			puts "Your new Strength is: #{strength}"
         		puts "Your new Speed is: #{speed}"
         		puts "Your new reputation is: #{reputation}"
@@ -62,6 +70,7 @@ while playerRaceChosen == false do
 			speed += 3
 			reputation -=2
 			playerRaceChosen == true
+			space()
 			puts "Your new Strength is: #{strength}"
         		puts "Your new Speed is: #{speed}"
         		puts "Your new reputation is: #{reputation}"
@@ -71,6 +80,7 @@ while playerRaceChosen == false do
 			speed -= 4
 			# Note -- reputation stays the same for dwarf. People in this RPG view them neutrally
 			playerRaceChosen == true
+			space()
 			puts "Your new Strength is: #{strength}"
         		puts "Your new Speed is: #{speed}"
         		puts "Your new reputation is: #{reputation}"
@@ -87,10 +97,12 @@ randEvent1 = randEvent1.downcase
 case randEvent1
 	when "y" || "yes"
 		if speed > 6
+			space()
 			puts "You were able to help the person in time"
 			puts "Your reputation has gone up in the town"
 			reputation += 5
 		else
+			space()
 			puts "You were too slow to help the person in time."
 			puts "Your reputation has gone down somewhat"
 			reputation -= 2
