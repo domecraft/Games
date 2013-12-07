@@ -96,7 +96,7 @@ case randEvent1
 			reputation -= 2
 	when "n" || "no"
 		puts "Ok then."
-locationChoiceChosen == false
+locationChoiceChosen = false
 while locationChoiceChosen == false do
 puts "Do you want to go to a Tavern next?"
 puts "Or maybe you want to go to the forest?"
