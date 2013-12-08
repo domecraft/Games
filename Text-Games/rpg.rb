@@ -20,10 +20,48 @@ def moneyOffered(moneyAmount)
 				puts "You now have #{money} coins"
 			when "no", "n"
 				reputation +=2
-				puts "Although you didn't accept the money your reputation still went up"
+				puts "You're reputation went up for not accepting the coins."
 				puts "Your new reputation is now #{reputation}"
 		end
 end
+
+def buyDrink()
+	# This function is used in taverns/bars in this rpg.
+	if playerRace == elf
+		puts "'Sorry, we don't serve your kind here.'"
+	else
+		puts "Would you like to buy a drink?"
+		buyDrink = gets.chomp
+		buyDrink = buyDrink.downcase
+		case buyDrink
+			when "yes", "y"
+				if money <2
+					puts "Sorry, you don't have enough money"
+				else
+					money -=2
+					space()
+					puts "'Here you go buddy'"
+					puts "The bartender hands you a drink"
+					puts "You now only have #{money} coins"
+				end
+			when "no", "n"
+				space()
+				puts "The bartender says:"
+				puts "'Wait, I'll give you a discount on the drink'"
+				puts "Do you want to buy the drink now?"
+				buyDrink = gets.chomp
+				buyDrink = buyDrink.downcase
+				case buyDrink
+					when "yes", "y"
+						puts "'Here you go'"
+						puts "The bartender hands you a drink"
+					when "no", "n"
+						puts "I don't like #(playerClass)s anyway."
+				end
+		end
+	end
+end
+
 puts "Welcome to this RPG. It is still in development but hopefully you still enjoy it."
     while playerClassChosen == false do 
     puts "First, pick a class. Do you want to be an archer, a warrior, or a wizard?"
@@ -138,14 +176,23 @@ locationChoice = gets.chomp
 locationChoice = locationChoice.downcase
 case locationChoice
 	when "tavern"
+		inTavern = true
 		locationChoiceChosen = true
 		space()
+		while inTavern == true do
 		puts "You are now in the tavern. You can either:"
 		puts "1: Talk to the bartender"
 		puts "2: Play a game of poker"
 		puts "3: Walk out out of the tavern"
 		tavernChoice = gets.chomp
 		tavernchoice = tavernChoice.downcase
+		case tavernChoice
+			when "1"
+				buyDrink()
+			when "2"
+			when "3"
+				inTavern == false
+		end
 	when "forest"
 		locationChoiceChosen = true
 		space()
