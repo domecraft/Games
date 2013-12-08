@@ -179,7 +179,7 @@ case locationChoice
 		inTavern = true
 		locationChoiceChosen = true
 		space()
-		while inTavern == true do
+	while inTavern == true do
 		puts "You are now in the tavern. You can either:"
 		puts "1: Talk to the bartender"
 		puts "2: Play a game of poker"
@@ -193,6 +193,7 @@ case locationChoice
 			when "3"
 				inTavern == false
 		end
+	end
 	when "forest"
 		locationChoiceChosen = true
 		space()
