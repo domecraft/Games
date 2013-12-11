@@ -62,6 +62,57 @@ def buyDrink()
 	end
 end
 
+def poker()
+space()
+playPoker = true
+while playPoker == true do
+	#This funciton will be used whenever poker is played in a tavern
+	pot = rand(1..25) # Will set the initial pot to a random amount between one and 25 coins.
+	if pot == 1
+		puts "The current pot in the poker game is #(pot) coin"
+	else
+		puts "The current pot in the poker game is #(pot) coins"
+	end
+	
+	puts "Do you want to continue to play a game of poker?"
+	putBet = gets.chomp
+	putBet = putBet.downcase
+	if putBet == yes
+		if ((money -= pot) < 0)
+			puts "Sorry, but you do not ahve enough money to play"
+		else
+			money -= pot
+			puts "You now have #{money} coins"
+			puts "Let's see if you win..."
+			puts "(Press enter to continue)"
+			continuePoker = gets.chomp
+			winningChance = rand(1..100) # sets the chances of winning between one and hundred
+			case winningChance
+				when 1..20
+					coin += pot*2
+					puts "You won!"
+					puts "You now have #{coin} coins!"
+				when 21..100
+					puts "Sorry, but you lost"
+			end
+			puts "Would you like to try again?"
+			playPoker = gets.chomp
+			playPoker = playPoker.downcase
+			case playPoker
+				when "yes"
+					playPoker = true
+				when "no"
+					playPoker = false
+			end
+		end
+	end
+	else
+		playPoker = false
+		puts "'Alright', says the dealer, 'Hope to see you again soon'"
+	end
+		
+end
+end
 puts "Welcome to this RPG. It is still in development but hopefully you still enjoy it."
     while playerClassChosen == false do 
     puts "First, pick a class. Do you want to be an archer, a warrior, or a wizard?"
@@ -190,7 +241,9 @@ case locationChoice
 			when "1"
 				buyDrink()
 			when "2"
+				poker()
 			when "3"
+				puts "You walk out of the tavern into the shivering cold"
 				inTavern == false
 		end
 	end
