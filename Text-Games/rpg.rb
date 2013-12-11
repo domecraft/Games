@@ -79,7 +79,7 @@ while playPoker == true do
 	putBet = putBet.downcase
 	if putBet == yes
 		if ((money -= pot) < 0)
-			puts "Sorry, but you do not ahve enough money to play"
+			puts "Sorry, but you do not have enough money to play"
 		else
 			money -= pot
 			puts "You now have #{money} coins"
