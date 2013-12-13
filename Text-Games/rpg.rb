@@ -243,7 +243,8 @@ case locationChoice
 			when "2"
 				poker()
 			when "3"
-				puts "You walk out of the tavern into the shivering cold"
+				space()
+				puts "You walk out of the tavern into the shivering cold of winter"
 				inTavern == false
 		end
 	end
@@ -252,7 +253,29 @@ case locationChoice
 		space()
 		puts "You find yourself in a forest. You see a deer in front of you."
 		puts "Do you wish to attack the Deer?"
-		
+		attackDeer = gets.chomp
+		attackDeer = attackDeer.downcase
+		case attackDeer
+			when "yes", "y"
+				if speed > 6 && strength > 4
+					space()
+					puts "You successfully killed the deer!"
+					puts "You put deer meat into your inventory"
+					inventory << "Deer Meat"
+					puts "You walk out of the forest looking for you next adventure."
+					puts "Who knows what you will do next?"
+				else
+					puts "Unfortunately, you were too slow and weak to kill it"
+					puts "But your speed has gone up for trying"
+					speed += 2
+				end
+			when "no", "n"
+				puts "Your reputation has gone up for not attacking it"
+				puts "You walk out of the forest knowing you saved an animal today"
+				reputation += 2
+			else
+				errorMessage()
+		end
 	else
 		puts "That is not an option!"
 	end
