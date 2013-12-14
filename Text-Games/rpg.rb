@@ -67,7 +67,7 @@ space()
 playPoker = true
 while playPoker == true do
 	#This funciton will be used whenever poker is played in a tavern
-	pot = rand(25) # Will set the initial pot to a random amount between one and 25 coins.
+	pot = rand(100) + 1 # Will set the initial pot to a random amount between one and 25 coins.
 	if pot == 1
 		puts "The current pot in the poker game is #{pot} coin"
 	else
