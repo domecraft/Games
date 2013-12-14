@@ -105,7 +105,6 @@ while playPoker == true do
 					playPoker = false
 			end
 		end
-	end
 	else
 		playPoker = false
 		puts "'Alright', says the dealer, 'Hope to see you again soon'"
