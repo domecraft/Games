@@ -280,5 +280,3 @@ case locationChoice
 		puts "That is not an option!"
 	end
 end
-	
-	
