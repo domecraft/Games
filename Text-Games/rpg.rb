@@ -4,10 +4,10 @@ health = 100
 inventory = []
 playerClassChosen = false
 money = 0
-def space()
+def space
 	puts ""
 end
-def errorMessage()
+def errorMessage
 	puts "You either didn't put one of the options or you spelled it wrong"
 end
 def moneyOffered(moneyAmount)
@@ -45,7 +45,7 @@ def buyDrink()
 					puts "You now only have #{money} coins"
 				end
 			when "no", "n"
-				space()
+				space
 				puts "The bartender says:"
 				puts "'Wait, I'll give you a discount on the drink'"
 				puts "Do you want to buy the drink now?"
@@ -123,7 +123,7 @@ puts "Welcome to this RPG. It is still in development but hopefully you still en
 		speed = 8
 		reputation = 8
 		playerClassChosen = true
-		space()
+		space
         	puts "Your Strength is: #{strength}"
         	puts "Your Speed is: #{speed}"
         	puts "Your reputation is: #{reputation}"
@@ -132,7 +132,7 @@ puts "Welcome to this RPG. It is still in development but hopefully you still en
 		speed = 3
 		reputation = 6
 		playerClassChosen = true
-		space()
+		space
 		puts "Your Strength is: #{strength}"
         	puts "Your Speed is: #{speed}"
         	puts "Your reputation is: #{reputation}"
@@ -141,17 +141,17 @@ puts "Welcome to this RPG. It is still in development but hopefully you still en
 		speed = 5
 		reputation = 4
 		playerClassChosen = true
-		space()
+		space
         	puts "Your Strength is: #{strength}"
         	puts "Your Speed is: #{speed}"
         	puts "Your reputation is: #{reputation}"
 	else
-		errorMessage()
+		errorMessage
 	end    
 end 
 playerRaceChosen = false
 while playerRaceChosen == false do
-	space()
+	space
 	puts "Next, let's pick a race for your character"
 	puts "Do you want to be a human, an elf, or a dwarf?"
 	playerRace = gets.chomp
@@ -162,7 +162,7 @@ while playerRaceChosen == false do
 			speed += 1
 			reputation += 2
 			playerRaceChosen == true
-			space()
+			space
 			puts "Your new Strength is: #{strength}"
         		puts "Your new Speed is: #{speed}"
         		puts "Your new reputation is: #{reputation}"
@@ -172,7 +172,7 @@ while playerRaceChosen == false do
 			speed += 3
 			reputation -=2
 			playerRaceChosen == true
-			space()
+			space
 			puts "Your new Strength is: #{strength}"
         		puts "Your new Speed is: #{speed}"
         		puts "Your new reputation is: #{reputation}"
@@ -182,17 +182,17 @@ while playerRaceChosen == false do
 			speed -= 4
 			# Note -- reputation stays the same for dwarf. People in this RPG view them neutrally
 			playerRaceChosen == true
-			space()
+			space
 			puts "Your new Strength is: #{strength}"
         		puts "Your new Speed is: #{speed}"
         		puts "Your new reputation is: #{reputation}"
         		playerRaceChosen = true
 		else
-			errorMessage()
+			errorMessage
 	end
 			
 end
-space()
+space
 puts "You start out in the middle of a town."
 puts " You overhear a person calling for help. Do you wish to help them? Y/N"
 randEvent1 = gets.chomp
@@ -200,7 +200,7 @@ randEvent1 = randEvent1.downcase
 case randEvent1
 	when "y", "yes"
 		if speed > 6
-			space()
+			space
 			puts "You were able to help the person in time"
 			puts "The person offers you money as thanks"
 			puts "Do you wish to accept the money?"
@@ -219,7 +219,7 @@ case randEvent1
 end
 locationChoiceChosen = false
 while locationChoiceChosen == false do
-space()
+space
 puts "Do you want to go to a Tavern next?"
 puts "Or maybe you want to go to the forest?"
 locationChoice = gets.chomp
@@ -228,7 +228,7 @@ case locationChoice
 	when "tavern"
 		inTavern = true
 		locationChoiceChosen = true
-		space()
+		space
 	while inTavern == true do
 		puts "You are now in the tavern. You can either:"
 		puts "1: Talk to the bartender"
@@ -249,7 +249,7 @@ case locationChoice
 	end
 	when "forest"
 		locationChoiceChosen = true
-		space()
+		space
 		puts "You find yourself in a forest. You see a deer in front of you."
 		puts "Do you wish to attack the Deer?"
 		attackDeer = gets.chomp
@@ -272,8 +272,8 @@ case locationChoice
 				puts "Your reputation has gone up for not attacking it"
 				puts "You walk out of the forest knowing you saved an animal today"
 				reputation += 2
-			else
-				errorMessage()
+		else
+				errorMessage
 		end
 	else
 		puts "That is not an option!"
