@@ -193,12 +193,15 @@ while playerRaceChosen == false do
 			
 end
 space
+townChoice = false
+while townChoice == false do
 puts "You start out in the middle of a town."
 puts " You overhear a person calling for help. Do you wish to help them? Y/N"
 randEvent1 = gets.chomp
 randEvent1 = randEvent1.downcase
 case randEvent1
 	when "y", "yes"
+	townChoice = true
 		if speed > 6
 			space
 			puts "You were able to help the person in time"
@@ -215,7 +218,9 @@ case randEvent1
 			puts "Your new reputation is now at #{reputation}"
 		end
 	when "n", "no"
+	townChoice = true
 		puts "Ok then."
+end
 end
 locationChoiceChosen = false
 while locationChoiceChosen == false do
