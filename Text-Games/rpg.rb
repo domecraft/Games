@@ -8,13 +8,12 @@ def space
 	puts ""
 end
 def errorMessage
-	puts "You either didn't put one of the options or you spelled it wrong"
+	puts "You either didn't put one of the options or you spelled it wrong. >.<"
 end
 def moneyOffered(moneyAmount)
 	#This function is used in random events when the player is offered money for helping
-	moneyChoice = gets.chomp
-	moneyChoice = moneyChoice.downcase
-		case moneyChoice
+	moneyChoice = gets.chomp.downcase
+	case moneyChoice
 			when "yes", "y"
 				money += moneyAmount
 				puts "You now have #{money} coins"
@@ -24,15 +23,13 @@ def moneyOffered(moneyAmount)
 				puts "Your new reputation is now #{reputation}"
 		end
 end
-
 def buyDrink()
 	# This function is used in taverns/bars in this rpg.
 	if playerRace == elf
 		puts "'Sorry, we don't serve your kind here.'"
 	else
 		puts "Would you like to buy a drink?"
-		buyDrink = gets.chomp
-		buyDrink = buyDrink.downcase
+		buyDrink = gets.chomp.downcase
 		case buyDrink
 			when "yes", "y"
 				if money <2
@@ -49,8 +46,7 @@ def buyDrink()
 				puts "The bartender says:"
 				puts "'Wait, I'll give you a discount on the drink'"
 				puts "Do you want to buy the drink now?"
-				buyDrink = gets.chomp
-				buyDrink = buyDrink.downcase
+				buyDrink = gets.chomp.downcase
 				case buyDrink
 					when "yes", "y"
 						puts "'Here you go'"
@@ -61,13 +57,12 @@ def buyDrink()
 		end
 	end
 end
-
 def poker()
-space()
+space
 playPoker = true
 while playPoker == true do
 	#This funciton will be used whenever poker is played in a tavern
-	pot = rand(100) + 1 # Will set the initial pot to a random amount between one and 25 coins.
+	pot = rand(100) + 1 # Will set the initial pot to a random amount between one and 100 coins.
 	if pot == 1
 		puts "The current pot in the poker game is #{pot} coin"
 	else
@@ -75,17 +70,17 @@ while playPoker == true do
 	end
 	
 	puts "Do you want to continue to play a game of poker?"
-	putBet = gets.chomp
-	putBet = putBet.downcase
+	putBet = gets.chomp.downcase
 	if putBet == yes
 		if ((money -= pot) < 0)
-			puts "Sorry, but you do not have enough money to play"
+			puts "I am sorry, but you do not have enough money to play"
 		else
 			money -= pot
 			puts "You now have #{money} coins"
 			puts "Let's see if you win..."
 			puts "(Press enter to continue)"
 			continuePoker = gets.chomp
+			space
 			winningChance = rand(1..100) # sets the chances of winning between one and hundred
 			case winningChance
 				when 1..20
@@ -96,8 +91,7 @@ while playPoker == true do
 					puts "Sorry, but you lost"
 			end
 			puts "Would you like to try again?"
-			playPoker = gets.chomp
-			playPoker = playPoker.downcase
+			playPoker = gets.chomp.downcase
 			case playPoker
 				when "yes"
 					playPoker = true
@@ -115,8 +109,7 @@ end
 puts "Welcome to this RPG. It is still in development but hopefully you still enjoy it."
     while playerClassChosen == false do 
     puts "First, pick a class. Do you want to be an archer, a warrior, or a wizard?"
-    playerClass = gets.chomp
-    playerClass = playerClass.downcase
+    playerClass = gets.chomp.downcase
     case playerClass
 	when "archer"
 		strength = 4
@@ -197,18 +190,18 @@ townChoice = false
 while townChoice == false do
 puts "You start out in the middle of a town."
 puts " You overhear a person calling for help. Do you wish to help them? Y/N"
-randEvent1 = gets.chomp
-randEvent1 = randEvent1.downcase
+randEvent1 = gets.chomp.downcase
 case randEvent1
 	when "y", "yes"
 	townChoice = true
-		if speed > 6
+		if speed > 5
 			space
 			puts "You were able to help the person in time"
 			puts "The person offers you money as thanks"
 			puts "Do you wish to accept the money?"
 			moneyOffered(10)
-			puts "Your reputation has gone up in the town for helping the stranger."
+			puts "Your reputation in this town" 
+			puts "has gone up in the town for helping the stranger."
 			reputation += 5
 		else
 			space()
@@ -219,7 +212,9 @@ case randEvent1
 		end
 	when "n", "no"
 	townChoice = true
-		puts "Ok then."
+		puts "Alright then"
+	else
+		errorMessage
 end
 end
 locationChoiceChosen = false
@@ -227,8 +222,7 @@ while locationChoiceChosen == false do
 space
 puts "Do you want to go to a Tavern next?"
 puts "Or maybe you want to go to the forest?"
-locationChoice = gets.chomp
-locationChoice = locationChoice.downcase
+locationChoice = gets.chomp.downcase
 case locationChoice
 	when "tavern"
 		inTavern = true
@@ -239,16 +233,16 @@ case locationChoice
 		puts "1: Talk to the bartender"
 		puts "2: Play a game of poker"
 		puts "3: Walk out out of the tavern"
-		tavernChoice = gets.chomp
-		tavernchoice = tavernChoice.downcase
+		tavernChoice = gets.chomp.downcase
 		case tavernChoice
 			when "1"
 				buyDrink()
 			when "2"
 				poker()
 			when "3"
-				space()
+				space
 				puts "You walk out of the tavern into the shivering cold of winter"
+				puts "You now have several options:"
 				inTavern == false
 		end
 	end
@@ -257,12 +251,11 @@ case locationChoice
 		space
 		puts "You find yourself in a forest. You see a deer in front of you."
 		puts "Do you wish to attack the Deer?"
-		attackDeer = gets.chomp
-		attackDeer = attackDeer.downcase
+		attackDeer = gets.chomp.downcase
 		case attackDeer
 			when "yes", "y"
 				if speed > 6 && strength > 4
-					space()
+					space
 					puts "You successfully killed the deer!"
 					puts "You put deer meat into your inventory"
 					inventory << "Deer Meat"
@@ -277,10 +270,64 @@ case locationChoice
 				puts "Your reputation has gone up for not attacking it"
 				puts "You walk out of the forest knowing you saved an animal today"
 				reputation += 2
-		else
+				puts "Your reputation is now at #{reputation}"
+			else
 				errorMessage
 		end
-	else
-		puts "That is not an option!"
 	end
 end
+puts "You now have several different paths ahead of you"
+puts "There is one on the left, one ahead of you and one to the right of you"
+pathChosen = false
+while pathChosen == false do
+	puts "Which path would you like to take?"
+	choosePath = gets.chomp.downcase
+	case choosePath
+	when "left", "l"
+		puts "You find yourself in front of a small cottage next to a river."
+	when "ahead", "forward"
+		puts "You find yourself in front of a mill with a worker there"
+		puts "Do you wish to talk to the worker?"
+	when "right", "r"
+		puts "You find yourself at the gates of a very large town"
+  		puts "In front of the gates are two guards"
+  		puts "What do you wish to do now?"
+  		space
+  		largeCityChoice = gets.chomp.downcase
+  		case largeCityChoice
+  			when "enter", "go in"
+  				if playerRace == "dwarf" || "elf"
+  					puts "The guards stop you from entering"
+  					puts "'Only humans are allowed in these vicinities' says one of the guards"
+  				else
+  					puts "The guards shake your hand"
+  					puts "'Welcome to Verdana!' says one of the guards"
+  					puts "You now find yourself in the town square"
+  				end
+  			when "attack", "attack guards"
+  				puts "Are you sure you want to attack these guards?"
+  				puts "It looks like they have some pretty heavy armor!"
+  				attackGuardConfirm = gets.chomp.downcase
+  				if attackGuardConfirm == "yes" || "y"
+  					if strength > 7 && speed > 7
+  						puts "You attacked the guards!"
+  						puts "It looks like they're dead!"
+  						puts "You've gained some notoriety for this action"
+  						reputation += 2
+  					else
+  						puts "You attacked the guards!"
+  						puts "However, it looks like they were able to resist your attacks!"
+  						health -= 15
+  						puts "Your health is now at #{health}"
+  						puts "It appears as though your reputation has gone down because of this"
+  						reputation -= 1
+  						puts "Your reputation is now at #{reputation}"
+  					end
+  				end
+  		end
+	end
+end
+	
+	
+
+
