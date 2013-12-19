@@ -151,6 +151,7 @@ while playerRaceChosen == false do
 	space
 	puts "Next, let's pick a race for your character"
 	puts "Do you want to be a human, an elf, or a dwarf?"
+	space
 	playerRace = gets.chomp
 	playerRace = playerRace.downcase
 	case playerRace
