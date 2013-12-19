@@ -115,6 +115,7 @@ puts "Welcome to this RPG. It is still in development but hopefully you still en
 		strength = 4
 		speed = 8
 		reputation = 8
+		intelligence = 9
 		playerClassChosen = true
 		space
         	puts "Your Strength is: #{strength}"
@@ -124,6 +125,7 @@ puts "Welcome to this RPG. It is still in development but hopefully you still en
 		strength = 8
 		speed = 3
 		reputation = 6
+		intelligence = 5
 		playerClassChosen = true
 		space
 		puts "Your Strength is: #{strength}"
@@ -133,6 +135,7 @@ puts "Welcome to this RPG. It is still in development but hopefully you still en
 		strength = 7
 		speed = 5
 		reputation = 4
+		intelligence = 7
 		playerClassChosen = true
 		space
         	puts "Your Strength is: #{strength}"
@@ -154,7 +157,7 @@ while playerRaceChosen == false do
 			strength += 3
 			speed += 1
 			reputation += 2
-			playerRaceChosen == true
+			intelligence +=1
 			space
 			puts "Your new Strength is: #{strength}"
         		puts "Your new Speed is: #{speed}"
@@ -164,7 +167,7 @@ while playerRaceChosen == false do
 			strength -=1
 			speed += 3
 			reputation -=2
-			playerRaceChosen == true
+			intelligence += 2
 			space
 			puts "Your new Strength is: #{strength}"
         		puts "Your new Speed is: #{speed}"
@@ -173,12 +176,17 @@ while playerRaceChosen == false do
 		when "dwarf"
 			strength =+5
 			speed -= 4
+			intelligence -=1
 			# Note -- reputation stays the same for dwarf. People in this RPG view them neutrally
-			playerRaceChosen == true
 			space
 			puts "Your new Strength is: #{strength}"
         		puts "Your new Speed is: #{speed}"
         		puts "Your new reputation is: #{reputation}"
+        		playerRaceChosen = true
+        	when "asian"
+        		strength +=0
+        		speed +=0
+        		intelligence += 100000000000000000000000000
         		playerRaceChosen = true
 		else
 			errorMessage
