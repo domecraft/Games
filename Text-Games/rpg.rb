@@ -26,14 +26,15 @@ end
 def buyDrink()
 	# This function is used in taverns/bars in this rpg.
 	if playerRace == elf
-		puts "'Sorry, we don't serve your kind here.'"
+		puts "'We don't serve your kind here' replies the bartender"
+		puts "He asks you to leave the vicinities immediately"
 	else
 		puts "Would you like to buy a drink?"
 		buyDrink = gets.chomp.downcase
 		case buyDrink
 			when "yes", "y"
 				if money <2
-					puts "Sorry, you don't have enough money"
+					puts "The bartender says 'Sorry buddy, but you don't have enough money'"
 				else
 					money -=2
 					space()
@@ -106,9 +107,9 @@ while playPoker == true do
 		
 end
 end
-puts "Welcome to this RPG. It is still in development but hopefully you still enjoy it."
+puts "Welcome to this RPG. It is still a work in progress but hopefully you like it."
     while playerClassChosen == false do 
-    puts "First, pick a class. Do you want to be an archer, a warrior, or a wizard?"
+    puts "First off, pick a class. Do you want to be an archer, a warrior, or a wizard?"
     space
     playerClass = gets.chomp.downcase
     case playerClass
@@ -152,8 +153,7 @@ while playerRaceChosen == false do
 	puts "Next, let's pick a race for your character"
 	puts "Do you want to be a human, an elf, or a dwarf?"
 	space
-	playerRace = gets.chomp
-	playerRace = playerRace.downcase
+	playerRace = gets.chomp.downcase
 	case playerRace
 		when "human"
 			strength += 3
@@ -315,10 +315,13 @@ while pathChosen == false do
   					puts "You now find yourself in the town square"
   				end
   			when "attack", "attack guards"
+  			attackGuardConfirmChoice = false
+  			while attackGuardConfirmChoice == false do
   				puts "Are you sure you want to attack these guards?"
   				puts "It looks like they have some pretty heavy armor!"
   				attackGuardConfirm = gets.chomp.downcase
   				if attackGuardConfirm == "yes" || "y"
+  					attackGuardConfirmChoice = true
   					if strength > 7 && speed > 7
   						puts "You attacked the guards!"
   						puts "It looks like they're dead!"
@@ -333,7 +336,14 @@ while pathChosen == false do
   						reputation -= 1
   						puts "Your reputation is now at #{reputation}"
   					end
+  				if attackGuardConfirm == "no" || "n"
+					attackGuardConfirmChoice = true
+  					puts "Good, it looked like they had some pretty strong armor and weapons"
+  					puts "However, the guards no longer trust you and won't let you in the city"
+  				else
+  					errorMessage()
   				end
+  			end
   		end
 	end
 end
