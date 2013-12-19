@@ -109,6 +109,7 @@ end
 puts "Welcome to this RPG. It is still in development but hopefully you still enjoy it."
     while playerClassChosen == false do 
     puts "First, pick a class. Do you want to be an archer, a warrior, or a wizard?"
+    space
     playerClass = gets.chomp.downcase
     case playerClass
 	when "archer"
