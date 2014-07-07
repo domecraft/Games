@@ -4,43 +4,85 @@
 # Enjoy the game!
 
 def error
+  puts ""    
   puts "I'm sorry, that is not a valid option"
+  puts ""
 end
 
 def space
-  puts ""
+  puts " "
 end
 
 puts "Welcome to World War II!"
 puts "To begin, you must first pick a leader to play as."
 leaderChosen = false
-while leaderChosen = false do
+while leaderChosen == false do
   puts "Here are your options:"
+  space()
   puts "1. Adolf Hitler - Germany"
   puts "2. Franklin Roosevelt - USA"
   puts "3. Benito Mussolini - Italy"
   puts "4. Tojo Hideki - Japan"
   puts "5. Joseph Stalin - USSR (Soviet Union)"
   puts "6. Hirohito - Japan"
+  space()
+  print "Pick the number of the leader: "
   chooseLeader = gets.chomp.downcase
-charisma = 5
-intelligence = 5
-navy = 5
-army = 5
-
-  
-  case chooseLeader 
-    when "1", "adolf hitler", "germany"
-      leaderChosen = true
-      leaderId = 1
-      puts "Congratulations, you are now playing as Hitler!"
-      puts "You get a +3 Charisma bonus because of your speaking skills!"
-    when "2", "frank roosevelt", "usa"
-      leaderChosen = true
-      leaderId = 2
-      puts "Congratulations, you are now playing as Franklin Roosevelt!"
-  end
+    case chooseLeader 
+        when "1", "2", "3", "4", "5", "6"
+        leaderChosen = true
+        else error()
+    end
 end
+charisma = 5
+army = 5
+navy = 5
+territories = 5
+case chooseLeader
+    when "1"
+        leaderName = "Adolf Hitler"    
+        country = "Germany"
+        charisma += 5
+        army += 1
+        navy -= 3
+        
+    when "2"
+        leaderName = "Franklin Roosevelt"
+        country = "United States of America"
+        charisma += 3
+        army += 4
+        navy += 3
+        territories += 4
+    when "3"
+        leaderName = "Benito Mussolini"     
+        country = "Italy"
+        charisma += 5
+        army += 2
+        navy -= 1
+        territories -= 1
+    when "4" 
+      leaderName = "Tojo Hideki"
+      country = "Japan"
+      charisma -= 2
+      army += 1
+      navy += 4
+      territories -= 2
+    when "5"
+      leaderName = "Joseph Stalin"
+      country = "USSR"
+      charisma += 1
+      army += 2
+      navy += 1
+      territories += 1
+    when "6"
+      leaderName = "Hirohito"
+      country = "Japan"
+      charisma += 1
+      army += 4
+      navy +=1
+      territories -= 3
+end
+puts "Your name is #{leaderName} and you are the leader of #{country}"
 
 
 
