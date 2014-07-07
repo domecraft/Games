@@ -45,7 +45,7 @@ case chooseLeader
         charisma += 5
         army += 1
         navy -= 3
-        
+        info = "As Adolf Hitler, you were the leader of the Nazi party in Germany. You also caused the Holocaust, one of the largest genocides in history. Most of your beliefs were written in a book called 'Mein Kampf'"
     when "2"
         leaderName = "Franklin Roosevelt"
         country = "United States of America"
@@ -82,7 +82,10 @@ case chooseLeader
       navy +=1
       territories -= 3
 end
+space()
 puts "Your name is #{leaderName} and you are the leader of #{country}"
+space()
+puts info
 
 
 
