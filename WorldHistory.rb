@@ -45,7 +45,7 @@ case chooseLeader
         charisma += 5
         army += 1
         navy -= 3
-        info = "As Adolf Hitler, you were the leader of the Nazi party in Germany. You also caused the Holocaust, one of the largest genocides in history. Most of your beliefs were written in a book called 'Mein Kampf'"
+        info = "- As Adolf Hitler, you were the leader of the Nazi party in Germany.\n- You also caused the Holocaust, one of the largest genocides in history.\n- Your beliefs were written in a book called 'Mein Kampf'"
     when "2"
         leaderName = "Franklin Roosevelt"
         country = "United States of America"
@@ -53,6 +53,7 @@ case chooseLeader
         army += 4
         navy += 3
         territories += 4
+        info = "- As Franklin Roosevelt, you helped the United States through uncertain times.\n- Your fireside chats made you a popular figure with American citizens.\n- You also had polio, a fact you tried to hide from others."
     when "3"
         leaderName = "Benito Mussolini"     
         country = "Italy"
@@ -60,6 +61,7 @@ case chooseLeader
         army += 2
         navy -= 1
         territories -= 1
+        info = "- As Benito Mussolini, you led Italy to fascism.\n- Originally you were a member of the Italian Socialist Party."
     when "4" 
       leaderName = "Tojo Hideki"
       country = "Japan"
