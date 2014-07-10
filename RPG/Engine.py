@@ -25,3 +25,12 @@ class character:
         
     def add_item(self, item):
         self.inventory.append(item)
+        
+    def remove_item(self, item):
+        if item in self.inventory:
+            self.inventory.remove(item)
+        else:
+            print item + " is not in your inventory!"
+        
+    def set_race(self, race):
+        self.race = race
