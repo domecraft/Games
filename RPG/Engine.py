@@ -34,3 +34,18 @@ class character:
         
     def set_race(self, race):
         self.race = race
+
+class store:
+    def __init__(self, name  = "General Store" , owner = "Store Owner", alliance = "Rebellion"):
+        self.name = name
+        self.store_owner = owner
+        self.alliance = alliance
+        self.stock = {
+            'longsword': {'cost': 10, 'speed': 3, 'strength': 7, 'defense': 2},
+            'shortsword': {'cost': 8, 'speed': 5, 'strength': 4, 'defense': 2},
+            'bronze_armor': {'cost': 10, 'speed': -2, 'strength': 1, 'defense': 6},
+            'silver_armor': {'cost': 20, 'speed': -5, 'strength': 2, 'defense': 12}
+            }
+       
+            
+        
