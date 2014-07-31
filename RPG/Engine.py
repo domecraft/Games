@@ -1,5 +1,5 @@
 class character:
-    def __init__(self, name, health, race, role, status, strength, defense, magic, bounty):
+    def __init__(self, name, gender ,health, race, role, status, strength, defense, magic, bounty):
         self.name = name
         self.health = health
         self.status = status
@@ -9,6 +9,7 @@ class character:
         self.role = role
         self.bounty = bounty
         self.magic = magic
+        self.gender = gender
         inventory = []
         
     def modify_health(self, amount):
@@ -87,14 +88,23 @@ class town:
 def introduction():
     print "Welcome to the game Asgarth!\nYou are immigrating from a foreign land in hopes of making:\n\n1.Fame\n2.Fortune\n3.Power"
     print "First, however, I would like to ask you a few questions"
+def greeting():
+    
+    if (gender == "male") or (gender == "m"):
+        print "Welcome to Asgarth, Mr. " + name
+    elif (gender == "female") or (gender == "f"):
+        print "Welcome to Asgarth, Ms. " + name
     
 #Character creation
 characterCreationFinished = False
 while characterCreationFinished == False:
     print ""
     name = raw_input("What is your name, adventurer?: ")
-    print""
-    race = str(raw_input ("What shall your race be?:\n1.Human\n2.Elf\n3.Dwarf\n"))
+    print ""
+    gender = raw_input("What is your gender?").lower()
+    print ""
+    greeting()
+    race = str(raw_input ("What shall your race be?:\n1.Human\n2.Elf\n3.Dwarf\n")).lower()
     race = race.lower()
     if (race == "1") or (race == "human"):
         strength = 6
@@ -114,7 +124,7 @@ while characterCreationFinished == False:
     else:
         print "That is not a valid race in this game!"
     
-    role = str(raw_input"What did you study before you arrived?\n1.Magic\n2.Warfare\n3.History\n" ))
+    role = str(raw_input ("What did you study before you arrived?\n1.Magic\n2.Warfare\n3.History\n" ))
     if (role == "1") or (role == "magic"):
         magic += 3
     if (role == "2") or (role == "warfare"):
