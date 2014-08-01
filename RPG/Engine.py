@@ -91,9 +91,11 @@ def introduction():
 def greeting():
     
     if (gender == "male") or (gender == "m"):
-        print "Welcome to Asgarth, Mr. " + name
+        print "Welcome to Asgarth, Sir " + name
     elif (gender == "female") or (gender == "f"):
-        print "Welcome to Asgarth, Ms. " + name
+        print "Welcome to Asgarth, Madam " + name
+    else:
+        print "hmm.. that's a rather peculiar gender"
     
 #Character creation
 characterCreationFinished = False
@@ -104,6 +106,7 @@ while characterCreationFinished == False:
     gender = raw_input("What is your gender?").lower()
     print ""
     greeting()
+    print""
     race = str(raw_input ("What shall your race be?:\n1.Human\n2.Elf\n3.Dwarf\n")).lower()
     race = race.lower()
     if (race == "1") or (race == "human"):
@@ -123,7 +126,7 @@ while characterCreationFinished == False:
         defense = 9001
     else:
         print "That is not a valid race in this game!"
-    
+    print""
     role = str(raw_input ("What did you study before you arrived?\n1.Magic\n2.Warfare\n3.History\n" ))
     if (role == "1") or (role == "magic"):
         magic += 3
@@ -131,6 +134,8 @@ while characterCreationFinished == False:
         strength += 3
     if (role == "3") or (role == "history"):
         defense +=3
+        
+    
         
 
     
