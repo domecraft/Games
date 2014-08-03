@@ -87,7 +87,9 @@ class town:
     
 def introduction():
     print "Welcome to the game Asgarth!\nYou are immigrating from a foreign land in hopes of making:\n\n1.Fame\n2.Fortune\n3.Power"
-    print "First, however, I would like to ask you a few questions"
+    print
+    print "First, however, I would like to ask you a few questions..."
+    
 def greeting():
     
     if (gender == "male") or (gender == "m"):
@@ -97,16 +99,18 @@ def greeting():
     else:
         print "hmm.. that's a rather peculiar gender"
     
-#Character creation
+introduction()
+#Character 
+invalidSelection = False
 characterCreationFinished = False
 while characterCreationFinished == False:
-    print ""
-    name = raw_input("What is your name, adventurer?: ")
-    print ""
+    print 
+    name = raw_input("What is your name, adventurer?: ").capitalize()
+    print 
     gender = raw_input("What is your gender?").lower()
-    print ""
+    print 
     greeting()
-    print""
+    print
     race = str(raw_input ("What shall your race be?:\n1.Human\n2.Elf\n3.Dwarf\n")).lower()
     race = race.lower()
     if (race == "1") or (race == "human"):
@@ -126,15 +130,36 @@ while characterCreationFinished == False:
         defense = 9001
     else:
         print "That is not a valid race in this game!"
-    print""
+        invalidSelection = True
+    print
     role = str(raw_input ("What did you study before you arrived?\n1.Magic\n2.Warfare\n3.History\n" ))
     if (role == "1") or (role == "magic"):
         magic += 3
-    if (role == "2") or (role == "warfare"):
+    elif (role == "2") or (role == "warfare"):
         strength += 3
-    if (role == "3") or (role == "history"):
+    elif (role == "3") or (role == "history"):
         defense +=3
-        
+    else:
+        print "That is not a valid thing to study!"
+        invalidSelection = True
+    print "Here is your character thus far:\n\n"
+    print "Name:\t" + name
+    print "Gender\t" + gender
+    print "Strength:\t" + str(strength)
+    print "Defense:\t" + str(defense)
+    print "Magic:\t" + str(magic)
+    print
+    characterAccept = raw_input("Are you satisfied with this?")
+    
+    #
+    #
+    #Make sure to add some code here that confirms whether or not the user wants this character 
+    #
+    if invalidSelection == True:
+        print "Sorry, but one of the options you selected was invalid. Try again."
+    else:    
+        characterCreationFinished = True #end characterCreation loop
+    
     
         
 
