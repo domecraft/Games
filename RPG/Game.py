@@ -1,3 +1,5 @@
+import engine
+
 class character:
     def __init__(self, name, gender ,health, race, role, status, strength, defense, magic, bounty, income, reputation):
         self.name = name
@@ -115,7 +117,7 @@ class bar:
 #Character Creation
 invalidSelection = False
 while True:
-    introduction()
+    engine.introduction()
     if (characterAccept == "y") or (characterAccept== "yes"):
         break
         break
@@ -124,7 +126,7 @@ while True:
     print 
     gender = raw_input("What is your gender?").lower()
     print 
-    greeting()
+    engine.greeting()
     print
     race = str(raw_input ("What shall your race be?:\n1.Human\n2.Elf\n3.Dwarf\n")).lower()
     race = race.lower()
