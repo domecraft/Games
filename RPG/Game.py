@@ -1,5 +1,5 @@
 import engine
-
+from classes import *
 
 #Character Creation
 invalidSelection = False
