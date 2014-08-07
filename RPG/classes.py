@@ -10,8 +10,8 @@ class character:
         self.bounty = bounty
         self.magic = magic
         self.gender = gender
-        self.income
-        self.reputation
+        self.income = income
+        self.reputation = reputation
         inventory = []
         
     def modify_health(self, amount):
