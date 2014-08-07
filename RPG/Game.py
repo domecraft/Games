@@ -47,6 +47,7 @@ while True:
     else:
         print "That is not a valid thing to study!"
         invalidSelection = True
+    print
     print "Here is your character thus far:\n\n"
     print "Name:\t" + name
     print "Gender\t" + gender
@@ -56,13 +57,22 @@ while True:
     print
     characterAccept = raw_input("Are you satisfied with this?").lower()
     if (characterAccept == "y") or (characterAccept== "yes"):
-        print "Let the game begin!"
+        print "Let the game begin!\n"
         break
+    elif (characterAccept == "n") or (characterAccept == "no"):
+        characterAccept = False
     else:
         invalidSelection = True
-        
+    #Check to see if user made an invalid input:    
     if invalidSelection == True:
+        print
         print "I'm sorry, but one of the inputs was invalid"
+    elif (characterAccept == False):
+        print
+        print "Ok, let's make a new character!"
+        print
+    else:
+        print "
         
 user = character(name, gender ,100, race, role, "healthy", strength, defense, magic, 0, 10, 0)
 mainBar = bar("Arenfeld's Keep", "Arenfeld", 1000)
@@ -71,17 +81,17 @@ time.sleep(2) #Edit out when testing on python lab
 print "You see two men arguing...\n"
 time.sleep(2) #Edit out when testing on python lab
 print "Suddenly the bartender comes up to you...\n\n"
-print " 'I'm going to ask you to leave, please' "
-barChoice  = raw_input("What do you do?\n1. 'Why?'\n2. 'Go screw yourself'\n 3. 'Sorry, I will leave' ").lower()
+print "\"I'm going to ask you to leave, please""
+barChoice  = raw_input("What do you do?\n1. 'Why?'\n2. 'Go screw yourself'\n3. 'Sorry, I will leave' ").lower()
 if (barChoice== "1") or ("why" in barChoice):
     print "The bartender replies:\n"
     print "'You haven't bought anything yet. Buy something or leave. An ale costs 2 coins\n"
-    print "You have " + user.income + "coins." 
+    print "You have " + str(user.income) + " coins." 
     dummyChoice = raw_input("Do you want to buy an ale?")
     if (dummyChoice == "y") or (dummyChoice == "yes"):
         user.modify_income(-2)
         user.add_item("Ale")
-        print "You now have " + user.income + "coins. An ale has been added to your inventory."
+        print "You now have " + str(user.income) + "coins. An ale has been added to your inventory."
         print "'Thanks.'\nThe bartender sits next to you, staring at you intently. "
     if (dummyChoice == "n") or (dummyChoice == "no"):
         print "That's fine. That's not the real reason I came up to you."
@@ -89,7 +99,7 @@ if (barChoice == "2") or ("screw" in barChoice):
     user.modify_reputation(-1)
     print "'Calm down - I was joking. I'm here to talk to you about something'"
 if (barChoice == "3") or (("sorry") or ("leave") in barChoice):
-    user.modify_reputatation(2)
+    user.modify_reputation(2)
     print "The bartender puts his hand on your shoulder before you can leave.\n'Wait... I was joking. I need to tell you something important."
     print "The bartender pulls up a chair and sits down, staring at you."
     
