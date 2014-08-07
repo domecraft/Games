@@ -3,6 +3,7 @@ from classes import *
 
 #Character Creation
 invalidSelection = False
+characterAccept = "n"
 while True:
     engine.introduction()
     if (characterAccept == "y") or (characterAccept== "yes"):
@@ -63,7 +64,7 @@ while True:
     if invalidSelection == True:
         print "I'm sorry, but one of the inputs was invalid"
         
-user = character(name, gender ,100, race, role, "healthy", strength, defense, magic, 0, 10)
+user = character(name, gender ,100, race, role, "healthy", strength, defense, magic, 0, 10, 0)
 mainBar = bar("Arenfeld's Keep", "Arenfeld", 1000)
 print "You find yourself in a bar...\n"
 time.sleep(2) #Edit out when testing on python lab
