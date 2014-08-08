@@ -12,7 +12,7 @@ class character:
         self.gender = gender
         self.income = income
         self.reputation = reputation
-        inventory = []
+        self.inventory = []
         
     def modify_health(self, amount):
         self.health += amount
@@ -52,10 +52,10 @@ class character:
             self.status = "alive"
             return "alive"
     def modify_income(self, amount):
-        income += amount
+        self.income += amount
         
     def modify_reputation(self, amount):
-        reputation += amount
+        self.reputation += amount
         
 #The following class is used for random npcs that I don't really develop in the storyline.        
 class basicCharacter:
