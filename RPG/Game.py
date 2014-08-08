@@ -81,27 +81,51 @@ time.sleep(2) #Edit out when testing on python lab
 print "You see two men arguing...\n"
 time.sleep(2) #Edit out when testing on python lab
 print "Suddenly the bartender comes up to you...\n\n"
-print "\"I'm going to ask you to leave, please""
+print "\"I'm going to ask you to leave, please\""
 barChoice  = raw_input("What do you do?\n1. 'Why?'\n2. 'Go screw yourself'\n3. 'Sorry, I will leave' ").lower()
 if (barChoice== "1") or ("why" in barChoice):
     print "The bartender replies:\n"
-    print "'You haven't bought anything yet. Buy something or leave. An ale costs 2 coins\n"
+    print "\"You haven't bought anything yet. Buy something or leave. An ale costs 2 coins\"\n"
     print "You have " + str(user.income) + " coins." 
     dummyChoice = raw_input("Do you want to buy an ale?")
     if (dummyChoice == "y") or (dummyChoice == "yes"):
         user.modify_income(-2)
         user.add_item("Ale")
         print "You now have " + str(user.income) + "coins. An ale has been added to your inventory."
-        print "'Thanks.'\nThe bartender sits next to you, staring at you intently. "
-    if (dummyChoice == "n") or (dummyChoice == "no"):
+        print "\"Thanks." "\nThe bartender sits next to you, staring at you intently. "
+    elif (dummyChoice == "n") or (dummyChoice == "no"):
         print "That's fine. That's not the real reason I came up to you."
-if (barChoice == "2") or ("screw" in barChoice):
+    else:
+        print " \"Yeah... I'm going to pretend I didn't just hear that"" 
+elif (barChoice == "2") or ("screw" in barChoice):
     user.modify_reputation(-1)
-    print "'Calm down - I was joking. I'm here to talk to you about something'"
-if (barChoice == "3") or (("sorry") or ("leave") in barChoice):
+    print "\"Calm down - I was joking. I'm here to talk to you about something\""
+elif (barChoice == "3") or (("sorry") or ("leave") in barChoice):
     user.modify_reputation(2)
-    print "The bartender puts his hand on your shoulder before you can leave.\n'Wait... I was joking. I need to tell you something important."
+    print "The bartender puts his hand on your shoulder before you can leave.\n\"Wait... I was joking. I need to tell you something important.\""
     print "The bartender pulls up a chair and sits down, staring at you."
-    
-    
-    
+print "The bartender looks somewhat rugged, and he holds his gaze at you for what seems forever...\n"
+print "Finally, he utters out a word.\n"
+print "\"My name is " + mainBar.owner() + ". I've been waiting for you for quite a while.\"\n"
+dummy_variable = raw_input("\"Your name is... (press enter to continue)\"\n"
+print user.name()
+print "\"That is your name, correct?\"\n"
+accept = raw_input("Y/N: ").lower()
+if ("y" in list(accept)): #Basically splits string and just checks for the letters y and n
+    print "\"Nice to meet you. I've heard quite a bit about you, actually.\""
+    print "\"I came to you because apparently you are quite the wanted person...\"\n"
+elif ("n" in list(accept)):
+   if (user.reputation() > 1):
+        print "\"Look, you seem like a nice person. You don't have to lie here.\""
+    else:
+        print "\"Filth like you disgust me...\"\n"
+print "The bartender pulls out what appears to be a 'wanted' poster with your face on it."
+print "You rush out to run but " + mainBar.owner() + "stops you before you can."
+###############################
+# PUT SOME STUFF IN HERE FOR LATER!!!!!!!!!!!!!!!!
+#   
+#    
+#    
+#
+#
+#
