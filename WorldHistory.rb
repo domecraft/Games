@@ -2,7 +2,7 @@
 # Start date: 3/21/2014 
 # End date: TBD
 # Enjoy the game!
-
+random = Random.new
 def error
   puts   
   puts "I'm sorry, that is not a valid option"
@@ -11,6 +11,28 @@ end
 
 def space
   puts 
+end
+
+def works #Used for testing 
+  puts "Yay, the code is working!"
+end
+
+def failure
+  puts "Unfortunately, you were not as good of a leader as you thought you were."
+  space
+  if charisma <= 0
+    puts "Your charisma fell too low and rebellions occurred. YOu lost control of #{country}"
+  elsif army || navy <= 0
+    puts "You do not have a sufficient amount of people within your military due to their deaths."
+    space
+    puts ""
+  elsif territories <= 0
+    puts "You lost too many territories, and your country no longer exists."
+  else
+    puts "Your leadership skills are deplorable."
+  end
+  space
+  puts "Better luck next time!"
 end
 
 puts "Welcome to World War II!"
@@ -96,6 +118,8 @@ puts info
 space
 puts "Here are the current attributes that you have right now:\nCharisma: #{charisma}\nArmy: #{army}\nNavy: #{navy}\nTerritories: #{territories}"
 space
+puts "Press enter to continue: "
+dummyVariable = gets.chomp
 puts "As the #{role} of #{country}, your job is to ensure the wellbeing of your country."
 space
 puts "This can be done in a variety of ways:\n1. By attacking other countries\n2. By creating peace treaties with other countries\n3. Increasing your charisma so your citizens adore you."
@@ -103,23 +127,51 @@ space
 puts "You initially believe that for #{country}, your best option would be to attack a smaller country and gain more citizens."
 space 
 case alliance
-  when "axis"
-    puts "As part of the axis powers, you decide that you will invade a small territory owned by The United States"
-    puts "There are two territories: The Midway Islands and Puerto Rico."
-    space
-    attackChosen = false
-    while attackChosen == false do
-      puts "Which territory do you want to attack?"
-      attackTerritory = gets.chomp.downcase
-      if attackTerritory.include? "midway" or "island"  
-        attackChosen = true
-      elsif attackTerrity.include? "puerto" or "rico"
-        attackChosen = true
-      else
-        error
+    when "axis"
+        puts "As part of the axis powers, you decide that you will invade a small territory owned by The United States"
+        space
+        puts "There are two territories: The Midway Islands and Puerto Rico."
+        space
+        attackChosen = false
+        while attackChosen == false do
+            puts "Which territory do you want to attack?"
+            attackTerritory = gets.chomp.downcase
+            if attackTerritory.include? "midway" || "island"  
+                attackChosen = true
+                attackTerritory = "midway islands"
+            elsif attackTerritory.include? "puerto" || "rico"
+                attackChosen = true
+                attackTerritory = "puerto rico"
+            else
+                error
+            end
     end
   when "allies"
   else error
+end
+space
+case attackTerritory
+  when "midway islands"
+    puts "Alright, you are attacking #{attackTerritory.capitalize}\nPress enter to continue: "
+    dummyVariable = gets.chomp
+    puts "Getting results from the General..."
+    space
+    sleep 5 ######################################## REMOVE THIS WHEN TESTING ON CODEACADEMY LABS!!!!!!!!!!!!!!!!!!!!
+    puts "Here is the result of the battle:\n"
+    if army >= random.rand(3..7) && navy >= random.rand(5..7)
+      territories += random.rand(1..4)
+      charisma += random.rand(1..3)
+      puts "Congratulations, you have taken over the #{attackTerritory}!.\nYou now have #{territories} territories!\nYour charisma has increased as well!"
+      puts "You now have #{charisma} charisma!" 
+    else
+      charisma -= random.rand(1..3)
+      army -= random.rand(2..4)
+      navy -= random.rand(2..4)
+      
+      puts "Unfortunately, you did not successfully take over #{attackTerritory}:(.\nAs a result, you have lost some charisma as well."  
+    end
+    
+  when "puerto rico"
 end
 
 
