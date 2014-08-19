@@ -13,7 +13,7 @@ def space
   puts 
 end
 
-def works #Used for testing 
+def pass #Used for testing 
   puts "Yay, the code is working!"
 end
 
@@ -141,12 +141,27 @@ case alliance
                 attackTerritory = "midway islands"
             elsif attackTerritory.include? "puerto" || "rico"
                 attackChosen = true
-                attackTerritory = "puerto rico"
+                attackTerritory = "Puerto Rico"
             else
                 error
             end
     end
   when "allies"
+    puts "As part of the allied powers, you decide that your best bet is to attack a German-occupied nation."
+    space
+    puts "There are currently two options: Estonia and the Kingdom of Greece"
+    attackChosen = false
+    while attackChosen == false do
+      puts "Which territory do you want to attack?"
+      attackTerritory = gets.chomp.downcase
+      if attackTerritory.include? "estonia"
+        attackChosen = true
+        attackTerritory = "Estonia"
+      elsif attackTerritory.include? "greece" || "kingdom"
+        attackChosen = true
+        attackTerritory = "The Kingdom of Greece"
+      else
+        error
   else error
 end
 space
@@ -158,8 +173,8 @@ case attackTerritory
     space
     sleep 5 ######################################## REMOVE THIS WHEN TESTING ON CODEACADEMY LABS!!!!!!!!!!!!!!!!!!!!
     puts "Here is the result of the battle:\n"
-    if army >= random.rand(3..7) && navy >= random.rand(5..7)
-      territories += random.rand(1..4)
+    if army >= random.rand(3..7) && navy >= random.rand(4..7)
+      territories += random.rand(2..5)
       charisma += random.rand(1..3)
       puts "Congratulations, you have taken over the #{attackTerritory}!.\nYou now have #{territories} territories!\nYour charisma has increased as well!"
       puts "You now have #{charisma} charisma!" 
@@ -167,11 +182,61 @@ case attackTerritory
       charisma -= random.rand(1..3)
       army -= random.rand(2..4)
       navy -= random.rand(2..4)
-      
       puts "Unfortunately, you did not successfully take over #{attackTerritory}:(.\nAs a result, you have lost some charisma as well."  
     end
-    
-  when "puerto rico"
+  when "Puerto Rico"
+    puts "Alright, you are attacking #{attackTerritory}\nPress enter to continue: "
+    dummyVariable = gets.chomp
+    puts "Getting results from the General..."
+    space
+    sleep 5 ######################################## REMOVE THIS WHEN TESTING ON CODEACADEMY LABS!!!!!!!!!!!!!!!!!!!!
+    if army >= random.rand(4..6) && navy >= random.rand(2..8)
+      territories += random.rand(1..3)
+      charisma += random.rand(2..5)
+      puts "Congratulations, you have taken over the #{attackTerritory}!.\nYou now have #{territories} territories!\nYour charisma has increased as well!"
+      puts "You now have #{charisma} charisma!"   
+    else
+      charisma -= random.rand(1..3)
+      army -= random.rand(2..4)
+      navy -= random.rand(2..4)
+      puts "Unfortunately, you did not successfully take over #{attackTerritory}:(.\nAs a result, you have lost some charisma as well."  
+    end
+  when "Estonia"
+    puts "Alright, you are attacking #{attackTerritory}\nPress enter to continue: "
+    dummyVariable = gets.chomp
+    puts "Getting results from the General..."
+    space
+    sleep 5 ######################################## REMOVE THIS WHEN TESTING ON CODEACADEMY LABS!!!!!!!!!!!!!!!!!!!!
+    if army >= random.rand(4..6) && charisma >= random.rand(2..7)
+      territories += random.rand(1..3)
+      charisma += random.rand(2..5)
+      puts "Congratulations, you have taken over the #{attackTerritory}!.\nYou now have #{territories} territories!\nYour charisma has increased as well!"
+      puts "You now have #{charisma} charisma!"   
+    else
+      charisma -= random.rand(1..3)
+      army -= random.rand(2..4)
+      navy -= random.rand(2..4)
+      puts "Unfortunately, you did not successfully take over #{attackTerritory}:(.\nAs a result, you have lost some charisma as well."  
+    end
+  when "The Kingdom of Greece"
+    puts "Alright, you are attacking #{attackTerritory}\nPress enter to continue: "
+    dummyVariable = gets.chomp
+    puts "Getting results from the General..."
+    space
+    sleep 5 ######################################## REMOVE THIS WHEN TESTING ON CODEACADEMY LABS!!!!!!!!!!!!!!!!!!!!
+    if army >= random.rand(2..7) && navy >= random.rand(0..10)
+      territories += random.rand(1..3)
+      charisma += random.rand(2..5)
+      puts "Congratulations, you have taken over the #{attackTerritory}!.\nYou now have #{territories} territories!\nYour charisma has increased as well!"
+      puts "You now have #{charisma} charisma!"   
+    else
+      charisma -= random.rand(1..3)
+      army -= random.rand(2..4)
+      navy -= random.rand(2..4)
+      puts "Unfortunately, you did not successfully take over #{attackTerritory}:(.\nAs a result, you have lost some charisma as well."  
+    end
+  else 
+    error
 end
 
 
