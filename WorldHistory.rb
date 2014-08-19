@@ -17,22 +17,26 @@ def pass #Used for testing
   puts "Yay, the code is working!"
 end
 
-def failure
+def checkFailure # Call whenever there is a possibility of user failing the game
+if charisma <= 0 || army || navy <= 0 || territories <= 0
   puts "Unfortunately, you were not as good of a leader as you thought you were."
   space
-  if charisma <= 0
-    puts "Your charisma fell too low and rebellions occurred. YOu lost control of #{country}"
-  elsif army || navy <= 0
-    puts "You do not have a sufficient amount of people within your military due to their deaths."
-    space
-    puts ""
-  elsif territories <= 0
-    puts "You lost too many territories, and your country no longer exists."
-  else
-    puts "Your leadership skills are deplorable."
-  end
+    if charisma <= 0
+      puts "Your charisma fell too low and rebellions occurred. YOu lost control of #{country}"
+    elsif army || navy <= 0
+      puts "You do not have a sufficient amount of people within your military due to their deaths."
+      space
+      puts ""
+    elsif territories <= 0
+      puts "You lost too many territories, and your country no longer exists."
+    else
+      puts "Your leadership skills are deplorable."
+    end
   space
   puts "Better luck next time!"
+else
+  space
+end
 end
 
 puts "Welcome to World War II!"
@@ -238,6 +242,16 @@ case attackTerritory
   else 
     error
 end
+checkFailure
+
+#################################
+#
+#
+#DIPLOMAT SECTION: BElOW HERE WILL HAVE THE PLAYERS ACTING AS DIPLOMATS (IE SIGNING TREATIES ETC)
+#
+#
+#
+###################################
 
 
 
